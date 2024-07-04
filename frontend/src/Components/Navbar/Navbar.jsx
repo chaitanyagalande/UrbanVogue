@@ -22,7 +22,7 @@ const Navbar = () => {
             <Link to='/' style={{textDecoration: "none"}}>
                 <div onClick={() => {setMenu("shop")}}className="nav-logo">
                     <img src={logo} style={{width: "80px"}} alt="" />
-                    <p>UrbanVogue</p>
+                    <p>Chaitanya</p>
                 </div>    
             </Link>
             <img className='nav-dropdown' onClick={dropdown_toggle} src={nav_dropdown} alt="" />
