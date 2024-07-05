@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 const router = express.Router()
 const cors = require('cors')
-const { signupUser, loginUser } = require('../Controllers/authController')
+const { signupUser, loginUser, getProfile } = require('../Controllers/authController')
 
 // Import and configure the cors middleware to allow cross-origin requests
 router.use(cors({
@@ -13,5 +13,6 @@ router.use(cors({
 // Routes
 router.post('/signup', signupUser) // Route for user registration
 router.post('/login', loginUser) // Route for user login
+router.get('/getProfile', getProfile)
 
 module.exports = router

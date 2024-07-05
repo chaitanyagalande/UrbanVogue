@@ -5,6 +5,7 @@ import { useContext, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { ShopContext } from '../../Context/ShopContext'
 import nav_dropdown from '../Assets/nav_dropdown.png'
+import { UserContext } from '../../Context/UserContext'
 
 const Navbar = () => {
 
@@ -12,6 +13,11 @@ const Navbar = () => {
     const { getTotalCartItems } = useContext(ShopContext)
     const menuRef = useRef()
 
+    const { user } = useContext(UserContext)
+
+    // if(user) {
+    //     console.log(user.name);
+    // }
     const dropdown_toggle = (e) => {
         menuRef.current.classList.toggle('nav-menu-visible')
         e.target.classList.toggle('open')
@@ -39,6 +45,13 @@ const Navbar = () => {
                 <Link to='/cart'><img src={cart_icon} alt="" /></Link>
                 <div className="nav-cart-count">{getTotalCartItems()}</div>
             </div>
+            {user ? 
+                <span>
+                    <div>Hello, {user.name}!</div>
+                    {/* <div>Email Id: {user.email}</div>  */}
+                </span>
+                : <></>
+            }
         </div>
     )
 }

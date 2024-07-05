@@ -67,7 +67,56 @@ const loginUser = async(req, res) => {
     }
 }
 
+// // Creating API for Getting User Profile
+const getProfile = async (req, res) => {
+    // Get token from request headers
+    const token = req.headers['authorization'];
+    if (!token) {
+        return res.status(401).json({
+            success: false,
+            errors: 'No token provided'
+        });
+    }
+
+    try {
+        // Verify the JWT token and await the result
+        const decoded = await jwt.verify(token, 'secret_ecom');
+        const userId = decoded.user.id;
+
+        // Fetch the user from the database
+        const user = await User.findById(userId).select('-password');
+
+        // Check if the user exists
+        if (!user) {
+            return res.status(404).json({
+                success: false,
+                errors: 'User not found'
+            });
+        }
+
+        // Respond with user data
+        res.json({
+            success: true,
+            user: {
+                id: user.id,
+                name: user.name,
+                email: user.email,
+                // Add other necessary fields
+            }
+        });
+
+    } catch (error) {
+        console.error('Error fetching user profile:', error.message);
+        res.status(500).json({
+            success: false,
+            errors: 'Server error'
+        });
+    }
+};
+
+
 module.exports = {
     signupUser,
-    loginUser
+    loginUser,
+    getProfile
 }
