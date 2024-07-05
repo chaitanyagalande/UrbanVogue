@@ -3,7 +3,10 @@ const Product = require('../models/product')
 // Creating API for New Collection Data
 const newCollections = async(req, res) => {
     let products = await Product.find({})
-    let newcollection = products.slice(1).slice(-8)
+    let nc_men = products.filter(product => product.category === 'men').slice(0, 3)
+    let nc_women = products.filter(product => product.category === 'women').slice(0, 3)
+    let nc_kids = products.filter(product => product.category === 'kid').slice(0, 2)
+    let newcollection = [...nc_men, ...nc_women, ...nc_kids]
     console.log("New Collection Fetched");
     res.send(newcollection)
 }
