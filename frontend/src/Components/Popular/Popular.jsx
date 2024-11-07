@@ -11,7 +11,7 @@ const Popular = () => {
   useEffect(() => {
     const fetchPopularProducts = async() => {
       try {
-        const response = await axios.get('http://localhost:4000/popularinwomen')
+        const response = await axios.get('https://urbanvogue-backend.onrender.com/popularinwomen')
         setPopularProducts(response.data)
       } catch(error) {
         console.error("There was an error fetching the popular in women products !", error);

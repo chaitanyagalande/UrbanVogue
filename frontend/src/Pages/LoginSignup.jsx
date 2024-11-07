@@ -18,7 +18,7 @@ const LoginSignup = () => {
   const login = async () => {
     console.log("Login Attempted", formData);
     try {
-      const response = await axios.post('http://localhost:4000/login', formData, {
+      const response = await axios.post('https://urbanvogue-backend.onrender.com/login', formData, {
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json'
@@ -41,7 +41,7 @@ const LoginSignup = () => {
   const signup = async () => {
     console.log("Signup Attempted", formData);
     try {
-      const response = await axios.post('http://localhost:4000/signup', formData, {
+      const response = await axios.post('https://urbanvogue-backend.onrender.com/signup', formData, {
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json'

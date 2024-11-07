@@ -32,7 +32,7 @@ const AddProduct = () => {
         formData.append('product', image);
 
         try {
-            const uploadResponse = await axios.post('http://localhost:4000/upload', formData, {
+            const uploadResponse = await axios.post('https://urbanvogue-backend.onrender.com/upload', formData, {
                 headers: {
                     'Accept': 'application/json'
                 }
@@ -42,7 +42,7 @@ const AddProduct = () => {
             if (responseData.success) {
                 product.image = responseData.image_url;
                 console.log(product);
-                const addProductResponse = await axios.post('http://localhost:4000/admin/addproduct', product, {
+                const addProductResponse = await axios.post('https://urbanvogue-backend.onrender.com/admin/addproduct', product, {
                     headers: {
                         'Accept': 'application/json',
                         'Content-Type': 'application/json'

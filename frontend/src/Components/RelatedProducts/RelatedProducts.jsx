@@ -14,7 +14,7 @@ const RelatedProducts = (props) => {
     const fetchRelatedProducts = async () => {
       try {
         const category = product.category
-        const response = await axios.get('http://localhost:4000/allproducts')
+        const response = await axios.get('https://urbanvogue-backend.onrender.com/allproducts')
         const filteredProducts = response.data.filter(product => product.category === category)
         setRelated_Products(filteredProducts.slice(0,4))
       } catch (error) {

@@ -9,7 +9,7 @@ const ListProduct = () => {
 
     const fetchInfo = async () => {
         try {
-            const response = await axios.get('http://localhost:4000/admin/allproducts');
+            const response = await axios.get('https://urbanvogue-backend.onrender.com/admin/allproducts');
             setAllProducts(response.data);
         } catch (error) {
             console.error("There was an error fetching the products!", error);
@@ -22,7 +22,7 @@ const ListProduct = () => {
 
     const remove_product = async (id) => {
         try {
-            await axios.post('http://localhost:4000/admin/removeproduct', { id }, {
+            await axios.post('https://urbanvogue-backend.onrender.com/admin/removeproduct', { id }, {
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json'

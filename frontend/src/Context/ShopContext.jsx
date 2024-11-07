@@ -24,7 +24,7 @@ const ShopContextProvider = (props) => {
     useEffect(() => {
         const fetchAllProducts = async () => {
             try {
-                const response = await axios.get('http://localhost:4000/allproducts');
+                const response = await axios.get('https://urbanvogue-backend.onrender.com/allproducts');
                 setAll_Product(response.data);
             } catch (error) {
                 console.error("There was an error fetching the products!", error);
@@ -34,7 +34,7 @@ const ShopContextProvider = (props) => {
         const fetchCartItems = async () => {
             if (localStorage.getItem('auth-token')) {
                 try {
-                    const response = await axios.post('http://localhost:4000/getcart', 
+                    const response = await axios.post('https://urbanvogue-backend.onrender.com/getcart', 
                     {}, // Send an empty object for the body
                     {
                         headers: {
@@ -59,7 +59,7 @@ const ShopContextProvider = (props) => {
         setCartItems((prev) => ({...prev, [itemId]: prev[itemId] + 1}));
         if(localStorage.getItem('auth-token')) {
             try {
-                const response = await axios.post('http://localhost:4000/addtocart', 
+                const response = await axios.post('https://urbanvogue-backend.onrender.com/addtocart', 
                 { itemId },
                 {
                     headers: {
@@ -79,7 +79,7 @@ const ShopContextProvider = (props) => {
         setCartItems((prev) => ({...prev, [itemId]: prev[itemId] - 1}));
         if(localStorage.getItem('auth-token')) {
             try {
-                const response = await axios.post('http://localhost:4000/removefromcart', 
+                const response = await axios.post('https://urbanvogue-backend.onrender.com/removefromcart', 
                 { itemId },
                 {
                     headers: {

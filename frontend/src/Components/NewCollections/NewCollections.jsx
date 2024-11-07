@@ -11,7 +11,7 @@ const NewCollections = () => {
   useEffect(() => {
     const fetchNewCollections = async () => {
       try {
-        const response = await axios.get('http://localhost:4000/newcollections')
+        const response = await axios.get('https://urbanvogue-backend.onrender.com/newcollections')
         setNew_Collection(response.data)
       } catch (error) {
         console.error("There was an error fetching the products!", error);

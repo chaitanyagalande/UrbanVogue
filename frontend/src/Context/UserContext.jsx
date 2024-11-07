@@ -11,7 +11,7 @@ const UserContextProvider = (props) => {
         const fetchUserProfile = async () => {
             if (localStorage.getItem('auth-token')) {
                 try {
-                    const response = await axios.get('http://localhost:4000/getProfile', {
+                    const response = await axios.get('https://urbanvogue-backend.onrender.com/getProfile', {
                         headers: {
                             'Authorization': `${localStorage.getItem('auth-token')}`
                         }
