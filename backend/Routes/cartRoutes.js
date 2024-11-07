@@ -8,7 +8,7 @@ const { fetchUser } = require('../Middlewares/fetchUser')
 // Import and configure the cors middleware to allow cross-origin requests
 router.use(cors({
     credentials: true, // Enable cookies and other credentials to be included in cross-origin requests
-    origin: 'http://localhost:5173' // Specify the origin that is allowed to access the resources (in this case, a local development server)
+    origin: 'https://urbanvogue-frontend.onrender.com' // Specify the origin that is allowed to access the resources (in this case, a local development server)
 }))
 
 // Routes

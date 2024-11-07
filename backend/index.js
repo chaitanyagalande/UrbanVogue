@@ -45,7 +45,7 @@ app.use('/images', express.static('upload/images'))
 app.post('/upload', upload.single('product'), (req, res) => {
     res.json({
         success: 1,
-        image_url: `http://localhost:${port}/images/${req.file.filename}`
+        image_url: `https://urbanvogue-backend.onrender.com/images/${req.file.filename}`
     })
 })
 
@@ -62,6 +62,6 @@ app.use('/admin', adminRoutes)
 
 // API Creation 
 app.listen(port, () => {
-    console.log(`Server is listening on: http://localhost:${port}`);
+    console.log(`Server is listening on: https://urbanvogue-backend.onrender.com`);
 })
 
