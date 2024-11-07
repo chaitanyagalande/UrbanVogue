@@ -1,6 +1,10 @@
+require('dotenv').config();
+const dbUrl = process.env.DATABASE_URL;
+
 const express = require('express')
 const app = express()
-const port = 4000
+
+const port = process.env.PORT || 4000
 
 const mongoose = require('mongoose')
 const jwt = require('jsonwebtoken')
@@ -12,7 +16,7 @@ app.use(express.json())
 app.use(cors())
 
 // Database connection with MongoDB Atlas
-mongoose.connect("mongodb+srv://chaitanya051203:chaionATLAS2003@cluster0.q53stnp.mongodb.net/e-commerce", {
+mongoose.connect(dbUrl, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 }).then(() => {
